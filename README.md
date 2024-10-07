@@ -37,9 +37,16 @@ Note that the type: const char * could really be changed to any pointer.
 Could make it const uint8_t * or even const uint32_t *. The linker really
 doesn't care.
 
-Also, to make this work with C++ either extern "C" has to be added in
-the C++ source to tell the compiler to not name mangle, or the variable
-name has to be name mangled to match what a C++ compiler expects.
+In C++, it's possible the variable name needs to be name mangled or
+it might require extern "C" to stop it:
+
+    extern "C"
+    {
+      extern const char *json;
+    }
+
+Oddly, it doesn't seem that C++ is name mangling global variable symbols
+so that might not be required.
 
 Currently only x86-64 is supported, but it would be easy to make it
 support other platforms.
