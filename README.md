@@ -20,7 +20,7 @@ Compiling it with:
 
 creates out.o which is equivalent to a C file that has:
 
-    const char *json = "{\n  "name": "mike",\n  "phone": "555-5555"\n}\n";
+    const char *json = "{\n  \"name\": \"mike\",\n  \"phone\": \"555-5555\"\n}\n";
 
 The out.o file can be linked with a C, C++, etc program. The program
 references the global name with:
